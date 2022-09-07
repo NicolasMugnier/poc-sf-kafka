@@ -8,8 +8,8 @@ framework:
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
             # failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
-            amqp: '%env(MESSENGER_TRANSPORT_DSN)%'
-                #dsn: enqueue://default
+            amqp: #'%env(MESSENGER_TRANSPORT_DSN)%'
+                dsn: enqueue://default
                 #serializer: messenger.transport.custom_serializer
                 #options:
                 #    topic: 

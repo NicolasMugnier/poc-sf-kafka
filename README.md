@@ -1,5 +1,17 @@
 # POC Symfony Messenger Kafka
 
+## Install required library
+
+```bash
+sudo apt-get install librabbitmq-dev
+```
+
+```bash
+sudo pecl install amqp
+```
+
+Add `extension=amqp.so` to php.ini
+
 ## Install dependencies
 
 ```bash
@@ -23,7 +35,7 @@ php -S 127.0.0.1:8000 public/index.php
 ## Send Batch Message
 
 ```
-POST http://127.0.0.1:8000/batch-message -d [{"id":1},{"id":2},...]
+curl -XPOST http://127.0.0.1:8000/batch-message -d [{"id":1},{"id":2},...]
 ```
 
 ## Docs

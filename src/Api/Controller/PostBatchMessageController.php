@@ -21,7 +21,10 @@ use App\Business\Async\Message\BatchMessage;
  */
 class PostBatchMessageController extends AbstractController
 {
-    private MessageBusInterface $bus;
+    /**
+     * @var MessageBusInterface $bus
+     */
+    private $bus;
 
     public function __construct(
         MessageBusInterface $bus

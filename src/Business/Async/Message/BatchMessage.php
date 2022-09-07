@@ -6,7 +6,10 @@ namespace App\Business\Async\Message;
 
 class BatchMessage
 {
-    private string $message;
+    /**
+     * @var string $message
+     */
+    private $message;
 
     public function setMessage(string $message): self
     {
