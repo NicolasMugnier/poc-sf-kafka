@@ -17,6 +17,7 @@ services:
     image: 'bitnami/kafka:2.6.0'
     ports:
       - '9093:9093'
+      - '5672:5672'
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092

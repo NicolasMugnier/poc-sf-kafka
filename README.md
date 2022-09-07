@@ -8,8 +8,22 @@ composer install
 
 ## Run
 
+Run Kafka container
+
 ```bash
 docker-compose up -d
+```
+
+Run basic PHP server on port 8000
+
+```
+php -S 127.0.0.1:8000 public/index.php
+```
+
+## Send Batch Message
+
+```
+POST http://127.0.0.1:8000/batch-message -d [{"id":1},{"id":2},...]
 ```
 
 ## Docs

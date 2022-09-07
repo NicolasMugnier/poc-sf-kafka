@@ -1,4 +1,25 @@
 {
+    "doctrine/annotations": {
+        "version": "1.13",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
+        },
+        "files": [
+            "config/routes/annotations.yaml"
+        ]
+    },
+    "enqueue/amqp-bunny": {
+        "version": "0.10",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.7",
+            "ref": "fa1a9a0c5ad7a58ced6401f2b9d66d6078679715"
+        }
+    },
     "enqueue/enqueue-bundle": {
         "version": "0.10",
         "recipe": {

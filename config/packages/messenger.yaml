@@ -8,15 +8,14 @@ framework:
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
             # failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
-            kafka-batch-message:
-                dsn: enqueue://default
-                serializer: messenger.transport.custom_serializer
-                options:
-                    topic: 'batch-message'
-                    metadata:
-                        partition: 0
+            amqp: '%env(MESSENGER_TRANSPORT_DSN)%'
+                #dsn: enqueue://default
+                #serializer: messenger.transport.custom_serializer
+                #options:
+                #    topic: 
+                #        name: 'batch-message'
 
         routing:
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
-            'App\Business\Async\Message\BatchMessage': kafka-batch-message
+            'App\Business\Async\Message\BatchMessage': amqp
