@@ -15,7 +15,7 @@ framework:
                     flushTimeout: 10000
                     flushRetries: 5
                     topic:
-                        name: 'events'
+                        name: 'batch-messages'
                     #kafka_conf:
                     #    security.protocol: 'sasl_ssl'
                     #    ssl.ca.location: '%kernel.project_dir%/config/kafka/ca.pem'
