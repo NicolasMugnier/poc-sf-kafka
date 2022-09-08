@@ -34,7 +34,21 @@ class PostBatchMessageController extends AbstractController
 
     public function __invoke(Request $request): Response
     {
-        $this->bus->dispatch((new BatchMessage($request->getContent())));
-        return JsonResponse::create('async-operation-id', 202);
+        $headers = [
+            'X-Correlation-ID' => $this->getCorrelationId($request),
+            'X-Origin' => $this->getOrigin($request)
+        ];
+        $this->bus->dispatch((new BatchMessage($headers, $request->getContent())));
+        return JsonResponse::create(['async-operation-id' => 'uuid-uuid-uuid-uuid'], 202);
+    }
+
+    private function getCorrelationId(Request $request): string
+    {
+        return $request->headers->get('X-Correlation-ID') ?? 'uuid';
+    }
+
+    private function getOrigin(Request $request): string
+    {
+        return $request->headers->get('X-Origin') ?? '';
     }
 }

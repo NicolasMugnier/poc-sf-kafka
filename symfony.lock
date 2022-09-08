@@ -11,36 +11,8 @@
             "config/routes/annotations.yaml"
         ]
     },
-    "enqueue/amqp-bunny": {
-        "version": "0.10",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "0.7",
-            "ref": "fa1a9a0c5ad7a58ced6401f2b9d66d6078679715"
-        }
-    },
-    "enqueue/enqueue-bundle": {
-        "version": "0.10",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "0.9",
-            "ref": "c6ec89b63f963d10ad0d7a7bea170359c119c8bc"
-        },
-        "files": [
-            "config/packages/enqueue.yaml",
-            "config/packages/test/enqueue.yaml"
-        ]
-    },
-    "sroze/messenger-enqueue-transport": {
-        "version": "0.6",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "0.1",
-            "ref": "9a7119f609b576a30dbf03e4fe44212388e96ea1"
-        }
+    "koco/messenger-kafka": {
+        "version": "v0.16"
     },
     "symfony/console": {
         "version": "4.4",

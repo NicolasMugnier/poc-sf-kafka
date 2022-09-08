@@ -8,14 +8,22 @@ framework:
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
             # failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
-            amqp: #'%env(MESSENGER_TRANSPORT_DSN)%'
-                dsn: enqueue://default
-                #serializer: messenger.transport.custom_serializer
-                #options:
-                #    topic: 
-                #        name: 'batch-message'
+            batchMessageProducer:
+                dsn: '%env(MESSENGER_KAFKA_TRANSPORT_DSN)%'
+                serializer: App\Transport\Serialization\Message\BatchMessageSerializer
+                options:
+                    flushTimeout: 10000
+                    flushRetries: 5
+                    topic:
+                        name: 'events'
+                    #kafka_conf:
+                    #    security.protocol: 'sasl_ssl'
+                    #    ssl.ca.location: '%kernel.project_dir%/config/kafka/ca.pem'
+                    #    sasl.username: '%env(KAFKA_SASL_USERNAME)%'
+                    #    sasl.password: '%env(KAFKA_SASL_PASSWORD)%'
+                    #    sasl.mechanisms: 'SCRAM-SHA-256'
 
         routing:
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
-            'App\Business\Async\Message\BatchMessage': amqp
+            'App\Business\Async\Message\BatchMessage': batchMessageProducer

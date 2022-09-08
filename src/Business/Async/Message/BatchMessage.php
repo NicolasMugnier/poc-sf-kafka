@@ -11,14 +11,23 @@ class BatchMessage
      */
     private $message;
 
-    public function setMessage(string $message): self
-    {
-        $this->message = $message;
+    /**
+     * @var array<string, string> $headers
+     */
+    private $headers;
 
-        return $this;
+    public function __construct(array $headers, string $message)
+    {
+        $this->headers = $headers;
+        $this->message = $message;
     }
 
-    public function getMessage(): string
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
+
+    public function getBody(): string
     {
         return $this->message;
     }
